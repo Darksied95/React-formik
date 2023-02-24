@@ -1,18 +1,43 @@
 import { useFormik } from "formik";
 import "./App.css";
 
+const initialValues = {
+  fName: "",
+  lName: "",
+  number: "",
+};
+
+const onSubmit = (values) => {
+  console.log(values);
+  alert("Form submitted");
+};
+
+const validate = (values) => {
+  const errors = {};
+  const numberLength = [11, 13, 14];
+  if (!values.fName) {
+    errors.fName = "First Name is required";
+  }
+  if (!values.lName) {
+    errors.lName = "Last Name is required";
+  }
+  if (!values.number) {
+    errors.number = "Number is required";
+  } else if (!numberLength.includes(+String(values.number).length)) {
+    errors.number = "This number seems wrong";
+  }
+
+  console.log(errors);
+  return errors;
+};
+
 function App() {
   const formik = useFormik({
-    initialValues: {
-      fName: "",
-      lName: "",
-      number: "",
-    },
-
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    initialValues,
+    onSubmit,
+    validate,
   });
+
   return (
     <form className="App" onSubmit={formik.handleSubmit}>
       <div>
@@ -24,6 +49,7 @@ function App() {
           onChange={formik.handleChange}
           value={formik.values.fName}
         />
+        {formik.errors.fName && <div>{formik.errors.fName}</div>}
       </div>
       <div>
         <label htmlFor="lName">Last Name: </label>
@@ -34,16 +60,19 @@ function App() {
           onChange={formik.handleChange}
           value={formik.values.lName}
         />
+        {formik.errors.lName && <div>{formik.errors.lName}</div>}
       </div>
+
       <div>
         <label htmlFor="number">Phone Number: </label>
         <input
-          type="text"
+          type="number"
           id="number"
           name="number"
           onChange={formik.handleChange}
           value={formik.values.number}
         />
+        {formik.errors.number && <div>{formik.errors.number}</div>}
       </div>
 
       <button type="submit">Submit</button>
