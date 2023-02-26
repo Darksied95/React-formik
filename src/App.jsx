@@ -27,7 +27,6 @@ const validate = (values) => {
     errors.number = "This number seems wrong";
   }
 
-  console.log(errors);
   return errors;
 };
 
@@ -47,9 +46,12 @@ function App() {
           id="fName"
           name="fName"
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           value={formik.values.fName}
         />
-        {formik.errors.fName && <div>{formik.errors.fName}</div>}
+        {formik.touched.fName && formik.errors.fName && (
+          <div>{formik.errors.fName}</div>
+        )}
       </div>
       <div>
         <label htmlFor="lName">Last Name: </label>
@@ -58,9 +60,12 @@ function App() {
           id="lName"
           name="lName"
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           value={formik.values.lName}
         />
-        {formik.errors.lName && <div>{formik.errors.lName}</div>}
+        {formik.touched.lName && formik.errors.lName && (
+          <div>{formik.errors.lName}</div>
+        )}
       </div>
 
       <div>
@@ -70,9 +75,12 @@ function App() {
           id="number"
           name="number"
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           value={formik.values.number}
         />
-        {formik.errors.number && <div>{formik.errors.number}</div>}
+        {formik.touched.number && formik.errors.number && (
+          <div>{formik.errors.number}</div>
+        )}
       </div>
 
       <button type="submit">Submit</button>

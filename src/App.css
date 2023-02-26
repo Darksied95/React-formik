@@ -1,9 +1,10 @@
 .App {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-top: 4rem;
+  background-color: black;
+  min-height: 100vh;
 }
 
 div:has(label) {
@@ -14,6 +15,7 @@ div div:last-child {
 }
 label {
   display: block;
+  color: whitesmoke;
 }
 input {
   padding: 1em;
