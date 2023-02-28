@@ -8,6 +8,10 @@ const initialValues = {
   lName: "",
   number: "",
   notes: "",
+  socials: {
+    facebook: "",
+    twitter: "",
+  },
 };
 
 const onSubmit = (values) => {
@@ -52,8 +56,18 @@ function App() {
         </div>
 
         <div>
-          <label htmlFor="">Notes</label>
+          <label htmlFor="notes">Notes</label>
           <Field as="textarea" name="notes" />
+        </div>
+
+        <div>
+          <label htmlFor="facebook">Facebook</label>
+          <Field name="socials.facebook" />
+        </div>
+
+        <div>
+          <label htmlFor="twitter">Twitter</label>
+          <Field name="socials.twitter" />
         </div>
 
         <button type="submit">Submit</button>

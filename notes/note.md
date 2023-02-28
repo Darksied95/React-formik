@@ -50,3 +50,7 @@ It is all handled by default by **Field** Component
 
 -We no longer have use for **formik.errors** because we now have an **ErrorMessage** self closing component that renders our errors automatically, we just have to pass a prop called name with the particular attr name we want.
 --ErrorMessage by default have no tag, we can use component prop to set it to any html tag we want (`component="div"`) but by default this div have no class, so we can create a custom Error component and pass it into the component props(see code)
+
+### Nested Object
+
+Related properties can be grouped as an object(see code)
