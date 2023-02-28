@@ -21,6 +21,7 @@ input {
   padding: 1em;
   background-color: aliceblue;
   border: 0;
+  display: block;
 }
 button {
   padding: 1em 2em;
