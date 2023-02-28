@@ -1,4 +1,3 @@
-import { useFormik } from "formik";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./App.css";
@@ -21,12 +20,6 @@ const validationSchema = Yup.object({
 });
 
 function App() {
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-    validationSchema,
-  });
-
   return (
     <Formik
       initialValues={initialValues}
