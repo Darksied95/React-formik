@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import * as Yup from "yup";
 import "./App.css";
 
 const initialValues = {
@@ -12,29 +13,34 @@ const onSubmit = (values) => {
   alert("Form submitted");
 };
 
-const validate = (values) => {
-  const errors = {};
-  const numberLength = [11, 13, 14];
-  if (!values.fName) {
-    errors.fName = "First Name is required";
-  }
-  if (!values.lName) {
-    errors.lName = "Last Name is required";
-  }
-  if (!values.number) {
-    errors.number = "Number is required";
-  } else if (!numberLength.includes(+String(values.number).length)) {
-    errors.number = "This number seems wrong";
-  }
+// const validate = (values) => {
+//   const errors = {};
+//   const numberLength = [11, 13, 14];
+//   if (!values.fName) {
+//     errors.fName = "First Name is required";
+//   }
+//   if (!values.lName) {
+//     errors.lName = "Last Name is required";
+//   }
+//   if (!values.number) {
+//     errors.number = "Number is required";
+//   } else if (!numberLength.includes(+String(values.number).length)) {
+//     errors.number = "This number seems wrong";
+//   }
 
-  return errors;
-};
+//   return errors;
+// };
+const validationSchema = Yup.object({
+  fName: Yup.string().required("First Name is required"),
+  lName: Yup.string().required("Last Name is required"),
+  number: Yup.number().required("Number is required"),
+});
 
 function App() {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
+    validationSchema,
   });
 
   return (
