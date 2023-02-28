@@ -33,3 +33,18 @@ validationSchema,
 All inputs errors are tracked once we clicked on an one input, this make for bad user ux, so instead we add **formik.handleBlur** to onBlur attribute, this gives us access to **formik.touched** and with this we can handle errors only on input we have visited.
 
 ## Formik Component
+
+Formik Component gives us an even better approach to forms
+`import { Formik, Form, Field, ErrorMessage } from "formik"`
+
+-We wrap our full form component with a **Formik** wrapper(see code)
+--We pass initialValues, onSubmit, validationSchema etc as props to **Formik**
+
+-We replace default html form tag with **Form** Component
+--NO need to use **formik.handleSubmit** here
+
+-We replace input with **Field**
+--No need for **formik.handleBlur**,**formik.handleChange**, **formik.values.[input attribute name]**
+I t is all handled by default by **Field** Component
+
+-We no longer have use for **formik.errors** because we now have an **ErrorMessage** self closing component that renders our errors automatically, we just have to pass a prop called name with the particular attr name we want.

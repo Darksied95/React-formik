@@ -33,7 +33,7 @@ function App() {
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
-      <Form className="App" onSubmit={formik.handleSubmit}>
+      <Form className="App">
         <div>
           <label htmlFor="fName">First Name </label>
           <Field type="text" id="fName" name="fName" />
