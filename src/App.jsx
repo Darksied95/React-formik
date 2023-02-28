@@ -1,11 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./App.css";
+import ErrorComponent from "./ErrorComponent";
 
 const initialValues = {
   fName: "",
   lName: "",
   number: "",
+  notes: "",
 };
 
 const onSubmit = (values) => {
@@ -46,9 +48,12 @@ function App() {
         <div>
           <label htmlFor="number">Phone Number: </label>
           <Field type="number" id="number" name="number" />
-          <div>
-            <ErrorMessage name="number" />
-          </div>
+          <ErrorMessage name="number" component={ErrorComponent} />
+        </div>
+
+        <div>
+          <label htmlFor="">Notes</label>
+          <Field as="textarea" name="notes" />
         </div>
 
         <button type="submit">Submit</button>

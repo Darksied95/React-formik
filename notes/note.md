@@ -45,6 +45,8 @@ Formik Component gives us an even better approach to forms
 
 -We replace input with **Field**
 --No need for **formik.handleBlur**,**formik.handleChange**, **formik.values.[input attribute name]**
-I t is all handled by default by **Field** Component
+It is all handled by default by **Field** Component
+--Fields by default are input but we can pass a prop `as=""` to change it to textarea or select.
 
 -We no longer have use for **formik.errors** because we now have an **ErrorMessage** self closing component that renders our errors automatically, we just have to pass a prop called name with the particular attr name we want.
+--ErrorMessage by default have no tag, we can use component prop to set it to any html tag we want (`component="div"`) but by default this div have no class, so we can create a custom Error component and pass it into the component props(see code)
