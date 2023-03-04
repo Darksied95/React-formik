@@ -62,3 +62,8 @@ When we have related fields, we can also grouped them in an array(see code)
 ### Dynamically created arrays using FieldArray
 
 Let's assume we have a single field but the user can click a button to generate more fields, we can use FieldArray component(see code)
+
+### FastField
+
+FastField are used to optimize performance, you see when we change a particular field the whole field gets re-rendered but when we use Fastfielda, a field only gets re-rendered when we change that particular field
+**According to the documentation, we should rarely use this, or only use it when we have a complex input or fields with more than 30 input fields**
