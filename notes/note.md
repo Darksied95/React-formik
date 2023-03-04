@@ -54,3 +54,7 @@ It is all handled by default by **Field** Component
 ### Nested Object
 
 Related properties can be grouped as an object(see code)
+
+### Arrays
+
+When we have related fields, we can also grouped them in an array(see code)

@@ -12,6 +12,7 @@ const initialValues = {
     facebook: "",
     twitter: "",
   },
+  phoneNumber: ["", ""],
 };
 
 const onSubmit = (values) => {
@@ -68,6 +69,14 @@ function App() {
         <div>
           <label htmlFor="twitter">Twitter</label>
           <Field name="socials.twitter" />
+        </div>
+        <div>
+          <label>Primary Phone Number</label>
+          <Field name="phoneNumber[0]" />
+        </div>
+        <div>
+          <label>Secondary Phone Number</label>
+          <Field name="phoneNumber[1]" />
         </div>
 
         <button type="submit">Submit</button>
