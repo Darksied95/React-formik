@@ -58,3 +58,7 @@ Related properties can be grouped as an object(see code)
 ### Arrays
 
 When we have related fields, we can also grouped them in an array(see code)
+
+### Dynamically created arrays using FieldArray
+
+Let's assume we have a single field but the user can click a button to generate more fields, we can use FieldArray component(see code)

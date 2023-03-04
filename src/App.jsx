@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
 import "./App.css";
 import ErrorComponent from "./ErrorComponent";
@@ -13,6 +13,7 @@ const initialValues = {
     twitter: "",
   },
   phoneNumber: ["", ""],
+  phNumbers: [""],
 };
 
 const onSubmit = (values) => {
@@ -79,6 +80,46 @@ function App() {
           <Field name="phoneNumber[1]" />
         </div>
 
+        <div>
+          <label>Add multiple Phone Numbers</label>
+          <FieldArray name="phNumbers">
+            {(props) => {
+              const { push, remove, form } = props;
+              const { values } = form;
+              const { phNumbers } = values;
+              console.log(phNumbers);
+              return (
+                <div>
+                  {phNumbers.map((phNumber, index) => {
+                    return (
+                      <div key={index}>
+                        <Field name={`phNumbers[${index}]`} />
+                        {index > 0 && (
+                          <button
+                            type="button"
+                            className="default"
+                            onClick={() => remove(index)}
+                          >
+                            {" "}
+                            -
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          className="default"
+                          onClick={() => push("")}
+                        >
+                          {" "}
+                          +{" "}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            }}
+          </FieldArray>
+        </div>
         <button type="submit">Submit</button>
       </Form>
     </Formik>

@@ -5,6 +5,7 @@
   padding-top: 4rem;
   background-color: black;
   min-height: 100vh;
+  outline: 1px solid red;
 }
 
 div:has(label) {
@@ -30,3 +31,8 @@ button {
   border: 0;
   outline: 0;
 }
+
+/* div button {
+  background-color: green;
+  padding: 0.5em;
+} */
